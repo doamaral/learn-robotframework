@@ -9,6 +9,7 @@ jobs:
         uses: actions/checkout@v3
       - run: echo ${{ github.workspace }}/sample_project/test/tests/login/
       - run: ls ${{ github.workspace }}/sample_project/test/tests/login/
+      - run: ls sample_project/test/tests/login/
       # - name: Robot Framework
       #   uses: joonvena/robotframework-docker-action@v1.0
       #   with:
