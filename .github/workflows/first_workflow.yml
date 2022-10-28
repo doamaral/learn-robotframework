@@ -2,15 +2,27 @@ name: Run Project
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 jobs:
-  Run_Robot_Tests:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
-      - name: Robot Framework
-        run: |
-            docker run \
-              -v ${PWD}/reports:/opt/robotframework/reports:Z \
-              -v ${PWD}/tests:/opt/robotframework/tests:Z \
-              --user $(id -u):$(id -g) \
-              ppodgorsek/robot-framework:latest
+  # Run_robotframework_tests_docker:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout repo
+  #       uses: actions/checkout@v3
+  #     - name: Run Tests
+  #       run: |
+  #           docker run \
+  #             -v ${PWD}/reports:/opt/robotframework/reports:Z \
+  #             -v ${PWD}/tests:/opt/robotframework/tests:Z \
+  #             --user $(id -u):$(id -g) \
+  #             ppodgorsek/robot-framework:latest
+  Run_robotframework_tests_action:
+      runs-on: ubuntu-latest
+      name: Run Robot Framework Tests
+      steps:
+        - name: Checkout repo
+          uses: actions/checkout@v3
+        - name: Robot Framework
+          uses: joonvena/robotframework-docker-action@v1.0
+          with:
+            robot_tests_dir: tests
+            
+          
