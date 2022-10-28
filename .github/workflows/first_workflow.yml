@@ -8,6 +8,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
       - run: echo ${{ github.workspace }}/sample_project/test/tests/login/
+      - run: ls echo ${{ github.workspace }}/sample_project/test/tests/login/
       # - name: Robot Framework
       #   uses: joonvena/robotframework-docker-action@v1.0
       #   with:
