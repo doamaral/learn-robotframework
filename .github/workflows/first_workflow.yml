@@ -7,13 +7,10 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
-      - run: echo ${{ github.workspace }}/sample_project/test/tests/login/
-      - run: ls ${{ github.workspace }}/sample_project/test/tests/login/
-      - run: ls sample_project/test/tests/login/
       - name: Robot Framework
         run: |
             docker run \
               -v ${PWD}/reports:/opt/robotframework/reports:Z \
-              -v ${PWD}/sample_project/test/tests:/opt/robotframework/tests:Z \
+              -v ${PWD}/tests:/opt/robotframework/tests:Z \
               --user $(id -u):$(id -g) \
               ppodgorsek/robot-framework:latest
