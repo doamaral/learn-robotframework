@@ -1,5 +1,5 @@
 *** Settings ***
-Resource    ../../page_objects/secure_area_page.robot
+Resource    page_objects/secure_area_page.robot
 
 *** Keywords ***
 Should Display ${expected_message} Message

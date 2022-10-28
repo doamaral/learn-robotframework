@@ -5,10 +5,10 @@ Documentation    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fa
 ...              Praesent blandit urna vitae urna rhoncus consequat. Maecenas viverra purus quam, vitae venenatis magna iaculis vitae. Proin tellus lorem, suscipit eget dignissim quis, hendrerit ut purus.
 ...              Sed semper urna arcu. Sed in dui nisi. Cras ut urna et orci lacinia maximus. Donec non felis dapibus, consectetur ante at, posuere lacus.
 
-Resource    ../../keywords/global_keywords.robot
-Resource    ../../page_objects/login_page.robot
-Resource    ../../page_objects/secure_area_page.robot
-Resource    ./login_tests_keywords.robot
+Resource    keywords/global_keywords.robot
+Resource    page_objects/login_page.robot
+Resource    page_objects/secure_area_page.robot
+Resource    login_tests_keywords.robot
 
 *** Test Cases ***
 Login with valid credentials

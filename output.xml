@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.10.7 on win32)" generated="20221028 20:50:57.597" rpa="false" schemaversion="3">
+<suite id="s1" name="Login Tests" source="C:\Users\lucas_amaral\bootcamp\tests\login_tests.robot">
+<test id="s1-t1" name="Login with valid credentials" line="14">
+<kw name="Open Page" library="global_keywords">
+<arg>${LOGIN_URL}</arg>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>${DEFAULT_BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20221028 20:50:57.795" level="INFO">Opening browser 'Chrome' to base url 'https://the-internet.herokuapp.com/login'.</msg>
+<status status="PASS" starttime="20221028 20:50:57.794" endtime="20221028 20:51:01.637"/>
+</kw>
+<status status="PASS" starttime="20221028 20:50:57.794" endtime="20221028 20:51:01.637"/>
+</kw>
+<kw name="Enter a Valid User" library="login_page">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${LOGIN_FIELD}</arg>
+<arg>tomsmith</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221028 20:51:01.638" level="INFO">Typing text 'tomsmith' into text field 'id:username'.</msg>
+<status status="PASS" starttime="20221028 20:51:01.638" endtime="20221028 20:51:01.705"/>
+</kw>
+<status status="PASS" starttime="20221028 20:51:01.637" endtime="20221028 20:51:01.705"/>
+</kw>
+<kw name="Enter a Valid Password" library="login_page">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${PASSWORD_FIELD}</arg>
+<arg>SuperSecretPassword!</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221028 20:51:01.706" level="INFO">Typing text 'SuperSecretPassword!' into text field 'name:password'.</msg>
+<status status="PASS" starttime="20221028 20:51:01.706" endtime="20221028 20:51:01.772"/>
+</kw>
+<status status="PASS" starttime="20221028 20:51:01.706" endtime="20221028 20:51:01.772"/>
+</kw>
+<kw name="Submit Login Form" library="login_page">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>Login</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221028 20:51:01.773" level="INFO">Clicking button 'Login'.</msg>
+<status status="PASS" starttime="20221028 20:51:01.773" endtime="20221028 20:51:02.079"/>
+</kw>
+<status status="PASS" starttime="20221028 20:51:01.772" endtime="20221028 20:51:02.079"/>
+</kw>
+<kw name="Should Display You logged into a secure area! Message" library="login_tests_keywords" sourcename="Should Display ${expected_message} Message">
+<kw name="Get Successfull Login Message" library="secure_area_page">
+<var>${actual_message}</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${SUCCESS_MESSAGE_BOX}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221028 20:51:02.103" level="INFO">${text} = You logged into a secure area!
+×</msg>
+<status status="PASS" starttime="20221028 20:51:02.079" endtime="20221028 20:51:02.103"/>
+</kw>
+<msg timestamp="20221028 20:51:02.103" level="INFO">${actual_message} = You logged into a secure area!
+×</msg>
+<status status="PASS" starttime="20221028 20:51:02.079" endtime="20221028 20:51:02.105"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${actual_message}</arg>
+<arg>${expected_message}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20221028 20:51:02.105" endtime="20221028 20:51:02.105"/>
+</kw>
+<status status="PASS" starttime="20221028 20:51:02.079" endtime="20221028 20:51:02.105"/>
+</kw>
+<kw name="Page URL Must Be" library="global_keywords">
+<arg>${SECURE_AREA_URL}</arg>
+<kw name="Get Location" library="SeleniumLibrary">
+<var>${current_url}</var>
+<doc>Returns the current browser window URL.</doc>
+<msg timestamp="20221028 20:51:02.108" level="INFO">${current_url} = https://the-internet.herokuapp.com/secure</msg>
+<status status="PASS" starttime="20221028 20:51:02.105" endtime="20221028 20:51:02.108"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${expected_url}</arg>
+<arg>${current_url}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20221028 20:51:02.108" endtime="20221028 20:51:02.108"/>
+</kw>
+<status status="PASS" starttime="20221028 20:51:02.105" endtime="20221028 20:51:02.108"/>
+</kw>
+<doc>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed faucibus sem non nisl vehicula,
+a gravida orci mattis. Duis ac fringilla dolor, eu aliquam nulla. Sed nec odio sagittis, lobortis sem sit amet, elementum tortor. Phasellus efficitur</doc>
+<status status="PASS" starttime="20221028 20:50:57.793" endtime="20221028 20:51:02.109"/>
+</test>
+<doc>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed faucibus sem non nisl vehicula,
+a gravida orci mattis. Duis ac fringilla dolor, eu aliquam nulla. Sed nec odio sagittis, lobortis sem sit amet, elementum tortor. Phasellus efficitur
+lorem ut quam convallis, dictum dignissim magna tincidunt. Nam urna tellus, rutrum at ligula ac, facilisis sodales ante. Quisque nec velit sed dui vehicula ultrices.
+Praesent blandit urna vitae urna rhoncus consequat. Maecenas viverra purus quam, vitae venenatis magna iaculis vitae. Proin tellus lorem, suscipit eget dignissim quis, hendrerit ut purus.
+Sed semper urna arcu. Sed in dui nisi. Cras ut urna et orci lacinia maximus. Donec non felis dapibus, consectetur ante at, posuere lacus.</doc>
+<status status="PASS" starttime="20221028 20:50:57.599" endtime="20221028 20:51:02.111"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Login Tests">Login Tests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
