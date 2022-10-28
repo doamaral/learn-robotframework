@@ -12,4 +12,4 @@ jobs:
         with:
           browser: 'firefox'
           robot_threads: 2
-          robot_tests_dir: 'sample_project/tests'
+          robot_tests_dir: 'sample_project/test/tests'
