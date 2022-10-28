@@ -11,8 +11,9 @@ jobs:
       - run: ls ${{ github.workspace }}/sample_project/test/tests/login/
       - run: ls sample_project/test/tests/login/
       - name: Robot Framework
-        uses: joonvena/robotframework-docker-action@v1.0
-        with:
-          robot_threads: 1
-          robot_tests_dir: sample_project/test/tests/login
-          robot_reports_dir: reports
+        run: |
+            docker run \
+              -v ${PWD}/reports:/opt/robotframework/reports:Z \
+              -v ${PWD}/sample_project/test/tests:/opt/robotframework/tests:Z \
+              --user $(id -u):$(id -g) \
+              ppodgorsek/robot-framework:latest
