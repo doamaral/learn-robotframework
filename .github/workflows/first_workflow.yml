@@ -1,6 +1,9 @@
-robot_test:
+name: Run Project
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: [push]
+jobs:
+  Run_Robot_Tests:
     runs-on: ubuntu-latest
-    name: Run Robot Framework Tests
     steps:
       - name: Checkout
         uses: actions/checkout@v2
