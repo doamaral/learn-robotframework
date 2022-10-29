@@ -14,7 +14,7 @@ jobs:
   play_env_hmg:
     name: Deploy Application on HMG
     runs-on: ubuntu-latest
-    needs: init_job
+    needs: build_app
     environment:
       name: hmg
       url: https://hmg.google.com/
