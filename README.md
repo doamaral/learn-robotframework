@@ -5,7 +5,6 @@ Create Basic Structure for a test Project using **Robotframework** and **Seleniu
 [![Run Project](https://github.com/doamaral/learn-robotframework/actions/workflows/first_workflow.yml/badge.svg)](https://github.com/doamaral/learn-robotframework/actions/workflows/first_workflow.yml)
 
 run tests:
-- `mkdir .tmp`
-- `robot --outputdir .tmp sample_project/test/tests/login/login_tests.robot`
+- `robot --outputdir reports tests/login/login_tests.robot`
 
 [Base app](https://the-internet.herokuapp.com/)
