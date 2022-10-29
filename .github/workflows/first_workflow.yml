@@ -34,11 +34,11 @@ jobs:
         with:
           robot_tests_dir: tests
       - name: Upload test results
-          uses: actions/upload-artifact@v1
-          if: always()
-          with:
-            name: reports
-            path: reports
+        uses: actions/upload-artifact@v1
+        if: always()
+        with:
+          name: reports
+          path: reports
   
   generate_report:
         if: always()
