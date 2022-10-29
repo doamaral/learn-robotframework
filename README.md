@@ -9,4 +9,6 @@ run tests:
 - `pip install -r requirements.txt`
 - `robot --outputdir reports tests/login/login_tests.robot`
 
+- show
+
 [Base app](https://the-internet.herokuapp.com/)
