@@ -2,6 +2,8 @@
 
 Create Basic Structure for a test Project using **Robotframework** and **Selenium**
 
+[![Run Project](https://github.com/doamaral/learn-robotframework/actions/workflows/first_workflow.yml/badge.svg)](https://github.com/doamaral/learn-robotframework/actions/workflows/first_workflow.yml)
+
 run tests:
 - `mkdir .tmp`
 - `robot --outputdir .tmp sample_project/test/tests/login/login_tests.robot`
