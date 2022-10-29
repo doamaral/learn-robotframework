@@ -2,7 +2,7 @@ name: Run Project
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 jobs:
-  Play_env_hmg:
+  play_env_hmg:
     runs-on: ubuntu-latest
     environment: hmg
     name: Build and Deploy Application
@@ -10,7 +10,7 @@ jobs:
       - name: Expose Secrets
         run: echo ${{ secrets.MY_SECRET }}
   
-  Play_env_prd:
+  play_env_prd:
     runs-on: ubuntu-latest
     environment: prd
     name: Build and Deploy Application
@@ -21,6 +21,7 @@ jobs:
   Run_robotframework_tests_action:
     runs-on: ubuntu-latest
     name: Run Robot Framework Tests
+    needs: [play_env_hmg, play_env_prd]
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
