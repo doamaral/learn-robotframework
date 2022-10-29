@@ -1,10 +1,18 @@
-name: Run Project
+name: Project Pipeline 
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 jobs:
+  init_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Any
+        run: echo this is a job
+
   play_env_hmg:
     runs-on: ubuntu-latest
     environment: hmg
+    url: https://google.com/q=${{ secrets.MY_SECRET }}
+    needs: init_job
     name: Build and Deploy Application
     steps:
       - name: Expose Secrets
@@ -13,6 +21,8 @@ jobs:
   play_env_prd:
     runs-on: ubuntu-latest
     environment: prd
+    needs: init_job
+    url: https://google.com/q=${{ secrets.MY_SECRET }}
     name: Build and Deploy Application
     steps:
       - name: Expose Secrets
@@ -23,6 +33,7 @@ jobs:
     name: Run Robot Framework Tests
     needs: [play_env_hmg, play_env_prd]
     steps:
+      - run: echo qq coisa
       - name: Checkout repo
         uses: actions/checkout@v3
       - name: Robot Framework
