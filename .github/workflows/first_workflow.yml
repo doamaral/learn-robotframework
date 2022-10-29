@@ -10,8 +10,9 @@ jobs:
 
   play_env_hmg:
     runs-on: ubuntu-latest
-    environment: hmg
-    url: https://google.com/q=${{ secrets.MY_SECRET }}
+    environment:
+      name: hmg
+      url: https://google.com/q=${{ secrets.MY_SECRET }}
     needs: init_job
     name: Build and Deploy Application
     steps:
@@ -20,9 +21,10 @@ jobs:
   
   play_env_prd:
     runs-on: ubuntu-latest
-    environment: prd
+    environment:
+      name: prd
+      url: https://google.com/q=${{ secrets.MY_SECRET }}
     needs: init_job
-    url: https://google.com/q=${{ secrets.MY_SECRET }}
     name: Build and Deploy Application
     steps:
       - name: Expose Secrets
