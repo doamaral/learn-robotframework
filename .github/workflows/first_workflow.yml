@@ -29,20 +29,28 @@ jobs:
       - run: echo qq coisa
       - name: Checkout repo
         uses: actions/checkout@v3
-      - name: Robot Framework
+      - name: Run tests Robot Framework
         uses: joonvena/robotframework-docker-action@v1.0
         with:
           robot_tests_dir: tests
+      - name: Upload test results
+          uses: actions/upload-artifact@v1
+          if: always()
+          with:
+            name: reports
+            path: reports
   
-  play_env_prd:
-    name: Deploy Application in PRD
-    runs-on: ubuntu-latest
-    environment:
-      name: prd
-      url: https://google.com
-    needs: run_robotframework_tests_action
-    steps:
-      - name: Expose Secrets
-        run: echo ${{ secrets.MY_SECRET }}
-            
-          
+  generate_report:
+        if: always()
+        needs: [run_robotframework_tests_action] 
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@v2
+        - name: Download reports
+          uses: actions/download-artifact@v1
+          with:
+            name: reports
+        - name: Send report to commit
+          uses: joonvena/robotframework-reporter-action@v2.1
+          with:
+            gh_access_token: ${{ secrets.GB_TOKEN }}
