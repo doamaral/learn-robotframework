@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: hmg
-      url: https://google.com/q=${{ secrets.MY_SECRET }}
+      url: https://hmg.google.com/
     needs: init_job
     name: Build and Deploy Application
     steps:
@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: prd
-      url: https://google.com/q=${{ secrets.MY_SECRET }}
+      url: https://google.com
     needs: init_job
     name: Build and Deploy Application
     steps:
