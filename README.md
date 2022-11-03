@@ -1,6 +1,6 @@
 # Sample Test Project
 
-Create Basic Structure for a test Project using **Robotframework** and **Selenium**
+Create Basic Structure for a test Project using **Robotframework** and **Selenium** using Github Actions to run tests at each push to `master` branch
 
 [![Run Project](https://github.com/doamaral/learn-robotframework/actions/workflows/first_workflow.yml/badge.svg)](https://github.com/doamaral/learn-robotframework/actions/workflows/first_workflow.yml)
 
