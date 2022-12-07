@@ -5,10 +5,9 @@ Create Basic Structure for a test Project using **Robotframework** and **Seleniu
 [![Run Project](https://github.com/doamaral/learn-robotframework/actions/workflows/first_workflow.yml/badge.svg)](https://github.com/doamaral/learn-robotframework/actions/workflows/first_workflow.yml)
 
 run tests:
-- make sure chromedriver is in th path
+- make sure chromedriver is in the path variable
 - `pip install -r requirements.txt`
 - `robot --outputdir reports tests/login/login_tests.robot`
-
 - show
 
 [Base app](https://the-internet.herokuapp.com/)
